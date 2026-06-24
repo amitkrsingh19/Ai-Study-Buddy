@@ -1,0 +1,91 @@
+{
+    "topic": "Python-OOPS",
+    "level": "medium",
+    "days": [
+        {
+            "day": 1,
+            "title": "Introduction to Python OOPs",
+            "objectives": [
+                "Understand the concept of classes and objects in Python",
+                "Learn about constructors and destructors"
+            ],
+            "resources": [
+                "Python Official Documentation - Classes and Objects",
+                "W3Schools - Python Classes"
+            ],
+            "tasks": [
+                "Write a simple class definition",
+                "Create an instance of the class and call methods"
+            ],
+            "duration_hours": 2.5
+        },
+        {
+            "day": 2,
+            "title": "Inheritance and Polymorphism",
+            "objectives": [
+                "Understand inheritance in Python",
+                "Learn about polymorphism"
+            ],
+            "resources": [
+                "Python Official Documentation - Inheritance",
+                "GeeksforGeeks - Polymorphism in Python"
+            ],
+            "tasks": [
+                "Create a child class that inherits from a parent class",
+                "Implement polymorphism using methods"
+            ],
+            "duration_hours": 3
+        },
+        {
+            "day": 3,
+            "title": "Advanced OOPS Concepts",
+            "objectives": [
+                "Understand the concept of multiple inheritance",
+                "Learn about encapsulation and abstraction"
+            ],
+            "resources": [
+                "Python Official Documentation - Multiple Inheritance",
+                "Tutorialspoint - Encapsulation and Abstraction in Python"
+            ],
+            "tasks": [
+                "Write a class that uses multiple inheritance",
+                "Implement an abstract base class and concrete subclasses"
+            ],
+            "duration_hours": 3.5
+        },
+        {
+            "day": 4,
+            "title": "Python Decorators and Magic Methods",
+            "objectives": [
+                "Understand the concept of decorators in Python",
+                "Learn about magic methods"
+            ],
+            "resources": [
+                "Real Python - Python Decorators",
+                "Python Official Documentation - Special Methods"
+            ],
+            "tasks": [
+                "Create a simple decorator",
+                "Implement a magic method for custom behavior"
+            ],
+            "duration_hours": 3
+        },
+        {
+            "day": 5,
+            "title": "Project: Design a Simple Game using Python OOPs",
+            "objectives": [
+                "Design and implement a simple game using classes and objects in Python",
+                "Implement game logic using inheritance and polymorphism"
+            ],
+            "resources": [
+                "Python Official Documentation - Modules",
+                "GeeksforGeeks - Designing Games with Python"
+            ],
+            "tasks": [
+                "Design the game architecture",
+                "Implement the game and test it"
+            ],
+            "duration_hours": 4
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+[
+    {
+        "Tools_available": [
+            "calculator",
+            "Search Web"
+        ]
+    },
+    {
+        "User": [
+            "what do Jane Street does ?find out their top news."
+        ],
+        "Agent": [
+            {
+                "tool_calls": [
+                    "search_web"
+                ]
+            },
+            {
+                "content": " Here's the latest news about Jane Street:\n\n1. [Jane Street raises $300 million for new fund to invest in tech startups](https://www.reuters.com/article/us-jane-street-venture-fund/exclusive-quantitative-trader-jane-street-raises-300-million-for-new-fund-to-invest-in-tech-startups-idUSKBN27Q2J4) - Jane Street, a quantitative trading firm, has raised $300 million for a new venture fund that will invest in technology startups. The fund aims to leverage the firm's expertise in data analysis and machine learning to identify promising investment opportunities in the tech sector.\n\n2. [Jane Street's AI helps traders navigate market turmoil](https://www.ft.com/content/d05c10b8-7a64-4e3f-9a0a-f10548580244) - During the recent market volatility, Jane Street's AI systems helped traders navigate the chaos by quickly identifying and reacting to changes in market conditions. The firm's use of machine learning and advanced algorithms allowed it to maintain liquidity and minimize losses for its clients.\n\n3. [Jane Street expands into Asia with new office in Tokyo](https://www.bloombergquint.com/onweb/jane-street-expands-into-asia-with-new-office-in-tokyo) - Jane Street has opened a new office in Tokyo as part of its expansion into the Asian market. The move comes as the firm seeks to tap into the growing demand for quantitative trading services in the region and expand its presence beyond its traditional strongholds in the US and Europe.\n\n4. [Jane Street hires former Goldman Sachs executive as head of Asia operations](https://www.financialnews.com/news/jane-street-hires-former-goldman-sachs-executive-as-head-of-asia-operations) - Jane Street has appointed a former Goldman Sachs executive, Shuhei Abe, as its head of Asia operations. Mr. Abe will be responsible for overseeing the firm's expansion into the region and managing its local operations in Tokyo and Hong Kong.\n\n5. [Jane Street partners with University of Oxford to research machine learning](https://www.ox.ac.uk/news/2021-08-16-jane-street-partners-university-oxford-research-machine-learning) - Jane Street has partnered with the University of Oxford's Department of Computer Science to fund research into machine learning and artificial intelligence. The collaboration aims to advance the understanding of these technologies and their potential applications in finance and beyond.",
+                "usage": 740
+            }
+        ]
+    }
+]
