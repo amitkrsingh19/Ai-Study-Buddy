@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.r1 {color: #008000; text-decoration-color: #008000}
+.r2 {color: #ff00ff; text-decoration-color: #ff00ff}
+.r3 {color: #808000; text-decoration-color: #808000; font-weight: bold}
+.r4 {color: #c0c0c0; text-decoration-color: #c0c0c0}
+.r5 {color: #008000; text-decoration-color: #008000; font-weight: bold; text-decoration: underline}
+.r6 {color: #800080; text-decoration-color: #800080}
+.r7 {color: #00ffff; text-decoration-color: #00ffff}
+body {
+    color: #000000;
+    background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+    <pre style="font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><code style="font-family:inherit"><span class="r1">                                              Planner-Agent-Response                                               </span>
+╭──────────┬─────────────────────────┬───────────────────────────────────┬─────────────────────────────┬──────────╮
+│<span class="r2">   Day    </span>│<span class="r2"> Topic &amp; Details         </span>│<span class="r2"> Objectives &amp; Tasks                </span>│<span class="r2"> Resources                   </span>│<span class="r2">     Time </span>│
+├──────────┼─────────────────────────┼───────────────────────────────────┼─────────────────────────────┼──────────┤
+│<span class="r3">    #1    </span>│<span class="r4"> Introduction to         </span>│<span class="r1"> </span><span class="r5">Objectives:</span><span class="r1">                       </span>│<span class="r6"> 🔗 Python Docs - Classes    </span>│<span class="r7">    2 hrs </span>│
+│<span class="r3">          </span>│<span class="r4"> Object-Oriented         </span>│<span class="r1"> • Understand the basics of OOP    </span>│<span class="r6"> and Objects                 </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4"> Programming             </span>│<span class="r1"> and its benefits                  </span>│<span class="r6"> 🔗 Real Python -            </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> • Learn about classes, objects,   </span>│<span class="r6"> Introduction to OOP in      </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> and attributes                    </span>│<span class="r6"> Python                      </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1">                                   </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> </span><span class="r5">Tasks:</span><span class="r1">                            </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Create a simple class with      </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> attributes                        </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Instantiate an object of the    </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> created class                     </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">    #2    </span>│<span class="r4"> Understanding Methods   </span>│<span class="r1"> </span><span class="r5">Objectives:</span><span class="r1">                       </span>│<span class="r6"> 🔗 Python Docs - Methods    </span>│<span class="r7">  2.5 hrs </span>│
+│<span class="r3">          </span>│<span class="r4"> and Inheritance         </span>│<span class="r1"> • Learn about methods in Python   </span>│<span class="r6"> 🔗 Real Python -            </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> • Understand the concept of       </span>│<span class="r6"> Inheritance in Python       </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> inheritance                       </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1">                                   </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> </span><span class="r5">Tasks:</span><span class="r1">                            </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Add a method to a class         </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Create a child class that       </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> inherits from a parent class      </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">    #3    </span>│<span class="r4"> Polymorphism and        </span>│<span class="r1"> </span><span class="r5">Objectives:</span><span class="r1">                       </span>│<span class="r6"> 🔗 Python Docs -            </span>│<span class="r7">  2.5 hrs </span>│
+│<span class="r3">          </span>│<span class="r4"> Encapsulation           </span>│<span class="r1"> • Learn about polymorphism in     </span>│<span class="r6"> Polymorphism                </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> Python                            </span>│<span class="r6"> 🔗 Real Python -            </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> • Understand the concept of       </span>│<span class="r6"> Encapsulation in Python     </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> encapsulation                     </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1">                                   </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> </span><span class="r5">Tasks:</span><span class="r1">                            </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Create a polymorphic function   </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Implement encapsulation in a    </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> class                             </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">    #4    </span>│<span class="r4"> Introduction to Modules </span>│<span class="r1"> </span><span class="r5">Objectives:</span><span class="r1">                       </span>│<span class="r6"> 🔗 Python Docs - Modules    </span>│<span class="r7">  2.5 hrs </span>│
+│<span class="r3">          </span>│<span class="r4"> and Packages            </span>│<span class="r1"> • Learn about Python modules and  </span>│<span class="r6"> 🔗 Real Python - Organizin… </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> packages                          </span>│<span class="r6"> Your Python Project         </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> • Understand how to organize code </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> using modules and packages        </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1">                                   </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> </span><span class="r5">Tasks:</span><span class="r1">                            </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Create a simple module          </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Organize code into a package    </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> structure                         </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">    #5    </span>│<span class="r4"> Putting it all          </span>│<span class="r1"> </span><span class="r5">Objectives:</span><span class="r1">                       </span>│<span class="r6"> 🔗 Python Project Ideas fo… </span>│<span class="r7">    3 hrs </span>│
+│<span class="r3">          </span>│<span class="r4"> together: A Simple      </span>│<span class="r1"> • Apply OOP concepts to build a   </span>│<span class="r6"> Beginners                   </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4"> Project                 </span>│<span class="r1"> simple project                    </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> • Understand the importance of    </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> code organization                 </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1">                                   </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> </span><span class="r5">Tasks:</span><span class="r1">                            </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Build a simple application      </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> using OOP principles              </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> ❑ Refactor and organize the code  </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+│<span class="r3">          </span>│<span class="r4">                         </span>│<span class="r1"> into modules/packages             </span>│<span class="r6">                             </span>│<span class="r7">          </span>│
+╰──────────┴─────────────────────────┴───────────────────────────────────┴─────────────────────────────┴──────────╯
+</code></pre>
+</body>
+</html>
