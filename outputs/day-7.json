@@ -1,0 +1,24 @@
+{
+    "subtopic": "Python Decorators",
+    "summary": "Python decorators allow modifying or extending function behavior without changing their code. They are higher-order functions that can take a function, modify it, and return a new one with extended or altered behavior. Class decorators are used to modify class behavior. Decorators provide a simple way to implement higher-order functions in Python.",
+    "key_concepts": [
+        "higher-order functions",
+        "decorator as a function",
+        "class decorators"
+    ],
+    "important_facts": [
+        "Decorators wrap a function with another function",
+        "They can add functionality before and after a function call",
+        "The `print()` function is an example of a function returning a value based on arguments"
+    ],
+    "study_tips": [
+        "Understand the concept of higher-order functions",
+        "Practice writing decorators for simple functions",
+        "Explore class decorators to modify class behavior"
+    ],
+    "sources_used": [
+        "https://realpython.com/primer-on-python-decorators",
+        "https://www.geeksforgeeks.org/python/decorators-in-python",
+        "https://medium.com/codex/decorators-in-python-a-brief-29ea8966b9f2"
+    ]
+}
