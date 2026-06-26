@@ -1,30 +1,32 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.prompts import PromptTemplate,ChatPromptTemplate
-from langchain_core.runnables import RunnableSequence
-from langchain_core.output_parsers import StrOutputParser
-from langchain_ollama.chat_models import ChatOllama
-from langchain.messages import SystemMessage
-from typing import TypedDict
 import json
-from dotenv import load_dotenv
-import os
-load_dotenv()
 
-#load the env variable
-GEMINI_KEY = os.getenv('GEMINI_API_KEY')
-MODEL = 'mistral:latest'
+from graph.state import State
+from configs.config import settings
 
-#llm = ChatGoogleGenerativeAI(model='gemini-flash-2.5',temperature=0.2, api_key=GEMINI_KEY)
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import JsonOutputParser
+
+from rich.console import Console
+from rich.table import Table
+from rich import box
+
+# import llm instance from config
+llm = settings.mistral_agent
+
+## initialize json parser
+parser = JsonOutputParser()
 
 ## system prompt for the output
 system_instruction = """
 You are an expert curriculum designer. 
 Your ONLY output must be valid JSON — no prose, no markdown fences, no explanation.
 Respond with a JSON object matching this exact schema: 
-{ "topic": string, "level": string, "days":
-[{ "day": int, "title": string, "objectives": [string],
-"resources": [string], "tasks": [string], "duration_hours": float } ] }
+{{ "topic": string, "level": string, "days":
+[{{ "day": int, "title": string, "objectives": [string],
+"resources": [string], "tasks": [string], "duration_hours": float }} ] }}
 """
+
+
 ## prompt with human input to feed llm
 human_instruction = """
 Create a 5-day learning plan for the topic: {topic}
@@ -34,40 +36,57 @@ Make each day progressively harder. Include 2-3 objectives, 2 resources, and 2 t
 
 # create a chat prompt template 
 chat_prompt_template = ChatPromptTemplate.from_messages([
-  (SystemMessage(content = system_instruction)),
+  ('system',system_instruction),
   ('human',human_instruction)
 ])
 
-# langgraph state 
-class State(TypedDict):
-  topic :str
-  level :str
-  raw_output :str
-  parsed_plan: dict
-  error:str
+## Planner agent node : creates study-plans
+def planner_node(state:State):
+  print("PLANNER STARTED")
 
-#llm.bind(response_format={"type": "json_object"})
+  # takes topic & level from the state
+  topic = state['topic']
+  level = state['level']
 
-def planner_agent(user_inputs):
-  llm = ChatOllama(model=MODEL,temperature = 0.2)
-  parser = StrOutputParser()
-  # create a chain with prompt template
+  ## create node input from topic and level
+  user_inputs = {"topic":topic, "level":level}
+
+  ## create llm chain
   chain = chat_prompt_template | llm | parser
-
+  
   try:
+    ## get the response from chain
     response = chain.invoke(user_inputs)
 
-    json_result = json.loads(response)
-    #save_result(json_result)
-    json_to_display_table(json_result)
+    print("RESPONSE TYPE:", type(response))
+    print("RESPONSE:", response)
 
-  except json.JSONDecodeError as e:
-    print(e)
-  
+    ## make sure to send a dict to extract subtopic
+    print("IS DICT:", isinstance(response, dict))
+    if isinstance(response,dict):
+
+      ## get the title from day1 to send it as subtopic to researcher node
+      subtopic = response['days'][0]['title']
+
+      subtopics = [day['title'] for day in response['days']]
+
+      print("SUBTOPIC:", subtopic)
+      ## return study_plan with subtopics to the state
+      return {"study_plan" : response, 
+              "subtopic" : subtopic,
+              "subtopics":subtopics,
+              "current_day" : 1}
+    
+    else: 
+      return {"errors": ["Planner returned invalid response"]}
+    
+  ## return exceptions as error if any
   except Exception as e:
-    print(e)
+    print("PLANNER ERROR:", str(e))
+    return {"errors" : [str(e)]}
 
 
+## this function saves result to a file
 def save_result(result):
   try:
     with open('planner_agent.json','w',encoding='utf-8') as f:
@@ -75,12 +94,8 @@ def save_result(result):
   except Exception as e:
     print(e)
 
-from rich.console import Console
-from rich.table import Table
-from rich.panel import Panel
-from rich import box
 
-
+## this function draw a table using rich library
 def json_to_display_table(data:dict):
   console = Console(record =True)
 
@@ -114,9 +129,3 @@ def json_to_display_table(data:dict):
         )
   console.print(table)
   console.save_html('planner_agent_response.html')
-
-
-
-if __name__ =="__main__":
-  user_inputs = {"topic":"JAVA Programming","level":"medium"}
-  planner_agent(user_inputs)
