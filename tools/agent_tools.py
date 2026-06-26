@@ -1,12 +1,9 @@
+import json
 from langchain_core.tools import tool
-from tavily import TavilyClient
 from tavily import errors
-import os
+from configs.config import settings
 
-
-# tavily api key
-tavily_client = TavilyClient(api_key=os.getenv('TAVILY_API_KEY'))
-
+tavily_client = settings.tavily_client
 
 #create a tool
 @tool
@@ -19,11 +16,17 @@ def search_web(query: str)->str:
   """Useful when you need to answer questions about current events or when you lack specific knowledge."""
   try:
     web_response = tavily_client.search(query,
-                                        include_answer=True,
                                         search_depth="advanced")
     
-    return web_response.get('answer',str(web_response))
-  
+    contents = []
+    sources = []
+    for result in web_response.get('results',[]):
+      contents.append(result['content'])
+      sources.append(result['url'])
+    
+    results = json.dumps({"contents":contents,"sources":sources})
+    return results
+    
   except errors.BadRequestError as e:
     print(f"Exception {e} Occured While Searching the Web")
     return f'Search Failed :{e}'
