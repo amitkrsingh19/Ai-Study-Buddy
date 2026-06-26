@@ -4,7 +4,7 @@ import operator
 class State(TypedDict):
   topic:str                       # user input
   level: str                      # beginner/medium/advanced
-  subtopic : Optional[str]                  # single subtopic from content
+  subtopic : Optional[str]        # single subtopic from content
   subtopics: Optional[list[str]]  # output from planner agent 
   current_day : Optional[int]     # current day of plan
   study_plan : Optional[dict]     # planner output 
