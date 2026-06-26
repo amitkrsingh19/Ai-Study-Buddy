@@ -1,0 +1,137 @@
+{
+    "topic": "Machine learning",
+    "level": "Advanced",
+    "subtopic": "Deep Learning Basics",
+    "subtopics": [
+        "Deep Learning Basics",
+        "Recurrent Neural Networks",
+        "Convolutional Neural Networks (CNN)",
+        "Reinforcement Learning",
+        "Deep Learning Project"
+    ],
+    "current_day": 1,
+    "study_plan": {
+        "topic": "Machine Learning",
+        "level": "Advanced",
+        "days": [
+            {
+                "day": 1,
+                "title": "Deep Learning Basics",
+                "objectives": [
+                    "Understand deep learning architecture",
+                    "Learn forward and backward propagation"
+                ],
+                "resources": [
+                    "Deep Learning Book by Ian Goodfellow",
+                    "CS231N: Convolutional Neural Networks for Visual Recognition"
+                ],
+                "tasks": [
+                    "Implement a simple feedforward neural network",
+                    "Solve a basic image classification problem using deep learning"
+                ],
+                "duration_hours": 6.0
+            },
+            {
+                "day": 2,
+                "title": "Recurrent Neural Networks",
+                "objectives": [
+                    "Understand RNN architecture",
+                    "Learn long short-term memory (LSTM) networks"
+                ],
+                "resources": [
+                    "Speech Recognition with Deep Learning by Michael Auli",
+                    "Long Short-Term Memory by Sepp Hochreiter, J\u00fcrgen Schmidhuber"
+                ],
+                "tasks": [
+                    "Implement an LSTM network for text generation",
+                    "Solve a time series prediction problem using RNNs"
+                ],
+                "duration_hours": 6.0
+            },
+            {
+                "day": 3,
+                "title": "Convolutional Neural Networks (CNN)",
+                "objectives": [
+                    "Understand CNN architecture",
+                    "Learn transfer learning and data augmentation"
+                ],
+                "resources": [
+                    "Deep Learning Specialization by Andrew Ng",
+                    "Transfer Learning in Deep Convolutional Networks by Shan Chen, Ross Girshick, Kaiming He"
+                ],
+                "tasks": [
+                    "Implement a CNN for object detection",
+                    "Fine-tune a pre-trained model on a custom dataset"
+                ],
+                "duration_hours": 6.0
+            },
+            {
+                "day": 4,
+                "title": "Reinforcement Learning",
+                "objectives": [
+                    "Understand Q-learning and policy gradient methods",
+                    "Learn to implement an agent for a simple environment"
+                ],
+                "resources": [
+                    "Reinforcement Learning: An Introduction by Richard S. Sutton, Andrew G. Barto",
+                    "Deep Reinforcement Learning Hands-On by David Silver"
+                ],
+                "tasks": [
+                    "Implement Q-learning for a gridworld problem",
+                    "Train an agent to play Atari games using deep reinforcement learning"
+                ],
+                "duration_hours": 6.0
+            },
+            {
+                "day": 5,
+                "title": "Deep Learning Project",
+                "objectives": [
+                    "Apply advanced machine learning techniques to a real-world problem",
+                    "Evaluate and improve the performance of deep learning models"
+                ],
+                "resources": [
+                    "Kaggle Competitions",
+                    "Stanford CS224n: NLP with Deep Learning"
+                ],
+                "tasks": [
+                    "Participate in a Kaggle competition using deep learning",
+                    "Improve the accuracy of a pre-trained model on a custom dataset"
+                ],
+                "duration_hours": 8.0
+            }
+        ]
+    },
+    "notes": {
+        "subtopic": "Deep Learning Basics",
+        "summary": "Deep Learning is a branch of AI that uses artificial neural networks to learn patterns from data, widely used in image recognition, speech processing and natural language understanding. Neural networks have key components controlling data flow and learning, helping the model adjust parameters and improve predictions.",
+        "key_concepts": [
+            "Artificial Intelligence",
+            "Neural Networks",
+            "Deep Learning",
+            "Optimization Algorithm"
+        ],
+        "important_facts": [
+            "Requires a large amount of data",
+            "End-to-end learning",
+            "Highly complex",
+            "Hard to interpret (black box)"
+        ],
+        "study_tips": [
+            "Practice with various datasets",
+            "Understand the optimization algorithms used",
+            "Explore different deep learning frameworks like TensorFlow and PyTorch"
+        ],
+        "sources_used": [
+            "https://www.geeksforgeeks.org/deep-learning/deep-learning-tutorial",
+            "https://www.geeksforgeeks.org/deep-learning/introduction-deep-learning"
+        ]
+    },
+    "sources": [
+        "https://www.geeksforgeeks.org/deep-learning/deep-learning-tutorial",
+        "https://www.geeksforgeeks.org/deep-learning/introduction-deep-learning",
+        "https://www.youtube.com/watch?v=6FkRvTtUc-o",
+        "https://www.datacamp.com/tutorial/tutorial-deep-learning-tutorial",
+        "https://www.youtube.com/watch?v=VsjhpUuOKn0"
+    ],
+    "errors": []
+}
