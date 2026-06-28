@@ -2,6 +2,7 @@ from typing import TypedDict, Optional, Annotated
 import operator
 
 class State(TypedDict):
+  raw_input : str                 # raw user_input
   topic:str                       # user input
   level: str                      # beginner/medium/advanced
   subtopic : Optional[str]        # single subtopic from content
@@ -18,3 +19,6 @@ class State(TypedDict):
   force_refresh: Optional[bool]   # set True by retry_tracker_node
   retries: int                    # int, starts at 0, max 2
   errors: Annotated[list[str],operator.add] # any node's error message
+  chat_history: Annotated[list, operator.add]   # accumulates messages
+  needs_clarification: Optional[bool]
+  clarification_message: Optional[str]
