@@ -1,12 +1,15 @@
 import json
 
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_core.output_parsers import JsonOutputParser
 
 from graph.state import State
 from configs.config import settings
 from tools.agent_tools import search_web, calculator
+from memory.short_term import ShortTermMemory
 
+## instance of ShortTermMemory
+short_term_memory = ShortTermMemory()
 
 ## llm instance
 llm = settings.mistral_agent
@@ -53,15 +56,11 @@ human_prompt = """Subtopic: {subtopic}
 
   Then output ONLY the JSON notes — no reasoning in response."""  
 
-## create a chat prompt template
-chat_prompt_template = ChatPromptTemplate.from_messages([
-  ('system',system_instruction),
-  ('human',human_prompt)
-])
-
 ## researcher agent : takes state -> notes to the state
 def researcher_node(state:State):
-  print("RESEARCHER STATE:", state)
+  chat_history = state['chat_history'] 
+
+  print("RESEARCHER agent")
   subtopic = state['subtopic']
   level = state['level']
 
@@ -69,26 +68,30 @@ def researcher_node(state:State):
     ## invoke tavily tool and send input to the chain
     search_result = search_web.invoke({"query":subtopic})
 
-    parsed = json.loads(search_result)
+    tavily_parsed = json.loads(search_result)
 
-    sources = parsed['sources']
-    ## create a input for researcher llm
-    user_inputs = {
-      "subtopic":subtopic, 
-      "level": level, 
-      "tavily_results": search_result
-  }
-    
-    ## create chain 
-    chain = chat_prompt_template | llm | parser
+    sources = tavily_parsed['sources']
 
+    filled_prompt = human_prompt.format(
+      subtopic = subtopic,
+      level = level,
+      tavily_results = search_result)
+    ## create a chat prompt template
+    messages =[
+    SystemMessage(content=system_instruction),
+    *chat_history,
+    HumanMessage(content = filled_prompt)
+  ]
     ## invoke the chain
-    response = chain.invoke(user_inputs)
+    response = llm.invoke(messages)
 
+    ## parser the output as json
+    llm_parsed = parser.invoke(response.content) # type:ignore
     ## return response as notes
-    return {"notes":response, "sources": sources}
+    return {"notes":llm_parsed, "sources": llm_parsed['sources_used']}
+  
   except Exception as e:
-    return {"error":[str(e)]}
+    return {"errors":[str(e)]}
 
 
 
