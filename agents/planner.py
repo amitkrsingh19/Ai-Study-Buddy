@@ -6,10 +6,6 @@ from configs.config import settings
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 
-from rich.console import Console
-from rich.table import Table
-from rich import box
-
 # import llm instance from config
 llm = settings.mistral_agent
 
@@ -58,9 +54,6 @@ def planner_node(state:State):
     ## get the response from chain
     response = chain.invoke(user_inputs)
 
-    print("RESPONSE TYPE:", type(response))
-    print("RESPONSE:", response)
-
     ## make sure to send a dict to extract subtopic
     print("IS DICT:", isinstance(response, dict))
     if isinstance(response,dict):
@@ -70,12 +63,12 @@ def planner_node(state:State):
 
       subtopics = [day['title'] for day in response['days']]
 
-      print("SUBTOPIC:", subtopic)
       ## return study_plan with subtopics to the state
       return {"study_plan" : response, 
               "subtopic" : subtopic,
               "subtopics":subtopics,
-              "current_day" : 1}
+              "current_day" : 1,
+              }
     
     else: 
       return {"errors": ["Planner returned invalid response"]}
@@ -93,39 +86,3 @@ def save_result(result):
       json.dump(result,f , indent=4)
   except Exception as e:
     print(e)
-
-
-## this function draw a table using rich library
-def json_to_display_table(data:dict):
-  console = Console(record =True)
-
-  if isinstance(data,dict):
-    table = Table(title='Planner-Agent-Response',title_style="green",box= box.ROUNDED,show_header=True, header_style="bold magenta")
-    table.add_column("Day", style="bold yellow", justify="center", width=15)
-    table.add_column("Topic & Details", style="white", width=30)
-    table.add_column("Objectives & Tasks", style="green", width=40)
-    table.add_column("Resources", style="magenta", width=35)
-    table.add_column("Time", style="bold blue", justify="right", width=15)
-
-    for day_info in data["days"]:
-        # Format Topic column with Title
-        topic_cell = f"[bold text_box_theme]{day_info['title']}[/]"
-
-        # Format Objectives and Tasks into a combined actionable checklist
-        objectives_list = "\n".join([f"• {obj}" for obj in day_info["objectives"]])
-        tasks_list = "\n".join([f"❑ {task}" for task in day_info["tasks"]])
-        actions_cell = f"[bold underline]Objectives:[/]\n{objectives_list}\n\n[bold underline]Tasks:[/]\n{tasks_list}"
-
-        # Format Resources into a list
-        resources_cell = "\n".join([f"🔗 {res}" for res in day_info["resources"]])
-
-        # Append the fully styled row to the table grid
-        table.add_row(
-            f"#{day_info['day']}",
-            topic_cell,
-            actions_cell,
-            resources_cell,
-            f"{day_info['duration_hours']} hrs"
-        )
-  console.print(table)
-  console.save_html('planner_agent_response.html')
